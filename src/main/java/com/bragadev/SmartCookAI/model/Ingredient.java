@@ -1,7 +1,6 @@
 package com.bragadev.SmartCookAI.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -13,11 +12,25 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Ingredient {
 
-    private static final Long id = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+
     private String category;
+
     private Integer quantity;
+
     private LocalDate expirationDate;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
